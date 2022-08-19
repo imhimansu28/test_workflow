@@ -3,6 +3,7 @@ import logging.handlers
 import os
 
 import requests
+from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -18,7 +19,7 @@ logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
 try:
-    SOME_SECRET = os.environ["SOME_SECRET"]
+    SOME_SECRET = os.getenv('63aac99600695f5cfc14fd3364785c5b')
 except KeyError:
     SOME_SECRET = "Token not available!"
     #logger.info("Token not available!")
@@ -30,12 +31,10 @@ b = 9
 if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
 
-    # r = requests.get(
-    #     'https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
-    # if r.status_code == 200:
-    #     data = r.json()
-    #     temperature = data["forecast"]["temp"]
-    #     logger.info(f'Weather in Berlin: {temperature}')
-
+    r = requests.get(
+        'https://api.github.com/users')
+    if r.status_code == 200:
+        user_name = r.json()[0]['login']
+        logger.info(f"User name: {user_name}")
     if a == b:
         logger.info("a is equal to b")
