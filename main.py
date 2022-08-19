@@ -24,6 +24,8 @@ except KeyError:
     #logger.info("Token not available!")
     # raise
 
+a = 9
+b = 9
 
 if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
@@ -34,3 +36,6 @@ if __name__ == "__main__":
         data = r.json()
         temperature = data["forecast"]["temp"]
         logger.info(f'Weather in Berlin: {temperature}')
+
+    if a == b:
+        logger.info("a is equal to b")
