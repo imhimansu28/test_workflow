@@ -32,7 +32,7 @@ if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
 
     r = requests.get(
-        'https://api.github.com/users')
+        'https://github.com/')
     if r.status_code == 200:
         user_name = r.json()[0]['login']
         logger.info(f"User name: {user_name}")
