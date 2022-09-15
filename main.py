@@ -30,11 +30,5 @@ b = 9
 
 if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
-
-    r = requests.get(
-        'https://github.com/')
-    if r.status_code == 200:
-        user_name = r.json()[0]['login']
-        logger.info(f"User name: {user_name}")
     if a == b:
-        logger.info("a is equal to b")
+        logger.info("Done!")
